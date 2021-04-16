@@ -1,8 +1,6 @@
 import PrawDataAPI
 import pytest
 
-# pytest is hard with async :(
-
 # testing does not work
 
 # @pytest.mark.asyncio

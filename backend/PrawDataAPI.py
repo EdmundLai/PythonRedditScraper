@@ -34,7 +34,7 @@ async def get_osuskins_top_skins():
 
     subreddit = await reddit.subreddit("osuskins")
 
-    async for submission in subreddit.top(limit=100):
+    async for submission in subreddit.top(limit=200):
         if submission.link_flair_text in skin_flairs:
             submissions["skins"].append(
                 {
@@ -44,4 +44,3 @@ async def get_osuskins_top_skins():
             )
 
     return submissions
-
