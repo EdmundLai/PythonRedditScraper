@@ -2,8 +2,6 @@ from dotenv import load_dotenv
 
 import os
 
-# import praw
-
 import asyncpraw
 
 load_dotenv()
@@ -39,7 +37,8 @@ async def get_osuskins_top_skins():
             submissions["skins"].append(
                 {
                     "title": submission.title,
-                    "link": f"https://reddit.com{submission.permalink}",
+                    "link": submission.url,
+                    "nsfw": submission.over_18,
                 }
             )
 
