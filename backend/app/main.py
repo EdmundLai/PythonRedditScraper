@@ -1,20 +1,15 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 
 import PrawDataAPI
 
-app = FastAPI()
+from starlette.middleware import Middleware
+from starlette.middleware.cors import CORSMiddleware
 
-origins = ["*"]
+origins = ["http://localhost:80", "*"]
 
+middleware = [Middleware(CORSMiddleware, allow_origins=origins)]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+app = FastAPI(middleware=middleware)
 
 
 @app.get("/api")
