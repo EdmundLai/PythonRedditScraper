@@ -2,11 +2,16 @@ version: "3.7"
 services:
   frontend:
     build: ./frontend
+    domainname: "redditosuskins"
+    image: edmundlai/osuskins-frontend:latest
     ports:
       - "80:80"
     depends_on:
       - backend
   backend:
     build: ./backend
+    image: edmundlai/osuskins-backend:latest
     ports:
-      - "8000:80"
+      - "8000:8000"
+    environment:
+      - PORT=8000
